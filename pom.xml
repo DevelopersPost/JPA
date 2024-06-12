@@ -12,6 +12,7 @@
     <module>Hello_World_JPA_Hibernate</module>
     <module>Hello_World_Native_Hibernate</module>
     <module>JPAToHibernateSwitch</module>
+    <module>NativeHibernateToJPASwitch</module>
 </modules>
 
     <properties>
