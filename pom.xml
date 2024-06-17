@@ -13,6 +13,7 @@
     <module>Hello_World_Native_Hibernate</module>
     <module>JPAToHibernateSwitch</module>
     <module>NativeHibernateToJPASwitch</module>
+    <module>Hello_World_With_Spring_Data_JPA</module>
 </modules>
 
     <properties>
