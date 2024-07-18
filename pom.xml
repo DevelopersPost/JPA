@@ -20,10 +20,10 @@
 <modules>
     <module>Hello_World_JPA_Hibernate</module>
     <module>Hello_World_Native_Hibernate</module>
-    <module>JPAToHibernateSwitch</module>
-    <module>NativeHibernateToJPASwitch</module>
     <module>Hello_World_With_Spring_Data_JPA</module>
     <module>SpringDataJpa</module>
+    <module>Generator</module>
+    <module>SwitchingBeweenJpaAndHibernate</module>
 </modules>
 
     <properties>
