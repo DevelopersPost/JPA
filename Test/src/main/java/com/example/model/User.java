@@ -6,22 +6,24 @@ import java.util.HashSet;
 import java.util.Set;
 
 @Entity
-public class Item {
+@Table(name = "users")
+public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
 
-    private String name;
-
-    @OneToMany(fetch = FetchType.LAZY,mappedBy = "item",cascade = CascadeType.PERSIST,orphanRemoval = true)
+    @OneToMany(mappedBy = "bidder")
     private Set<Bid> bids = new HashSet<>();
 
-    public Item() {
+    private String name;
+
+
+    public User() {
     }
 
-    public Item(String name) {
-        this.name = name;
+    public User(String username) {
+        this.name = username;
     }
 
     public Long getId() {
@@ -44,7 +46,4 @@ public class Item {
         bids.add(bid);
     }
 
-    public void removeBid(Bid bid) {
-        bids.remove(bid);
-    }
 }
