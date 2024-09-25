@@ -23,6 +23,7 @@
     <module>SwitchingBeweenJpaAndHibernate</module>
     <module>Test</module>
     <module>HelloWorldWithSpringBootAndSpringData</module>
+    <module>Accessing_Metadata_At_Runtime</module>
 </modules>
 
     <properties>
