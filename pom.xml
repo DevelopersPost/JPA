@@ -25,6 +25,7 @@
     <module>HelloWorldWithSpringBootAndSpringData</module>
     <module>Accessing_Metadata_At_Runtime</module>
     <module>PaginationUsingSpringDataJpa</module>
+    <module>HandlingWildCardsUsingSpringExpressionLanguageSpringDataJpa</module>
 </modules>
 
     <properties>
