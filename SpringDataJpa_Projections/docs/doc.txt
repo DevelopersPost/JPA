@@ -1,0 +1,71 @@
+Projections
+================
+Projection is a technique of selecting only specific columns (fields) from a database entity instead of fetching the entire entity.
+
+When to use Projections
+    - when you don’t need the entire entity
+
+ benefits of using projections in JPA
+
+    - Performance
+    - Flexibility
+    - Memory Efficiency
+    - Simplifies Data Transfer
+
+Interface-based Projections
+    - Custom Query
+    - Query Method
+    - When using Interface-based projections with Query Method, you must use accessor method name same as column name.
+    - When using Interface-based projections with Custom Query, accessor method name need to be same as column name also alias name need to be same as accessor method name.
+    - When using Interface-based nested projections with Custom Query or Query Method, you can use any column to fetch data of nested projection (any column means any selected column)
+
+Class-based (DTO) Projections
+    - Nested Projections is not possible
+    - When using Class-based projections with Query Method, property name need not to be same as column name but constructor parameter name need to be same as column name.
+    - When using Class-based projections with Custom Query, property name need not to be same as column name but constructor parameter name need to be same as column name.
+
+Dynamic Projections
+    - Dynamic projections work with derived query( query method) methods (like findBy...) automatically.
+    - For custom JPQL queries (@Query), Spring Data does NOT support dynamic projections.
+
+Closed vs. Open Projections
+
+Open Projections
+
+- Can include computed fields (not just entity fields).
+- Uses @Value annotation with SpEL expressions to compute values.
+- Allows combining multiple fields into a single projection method.
+- Spring Data JPA does not support class-based projections in open projections because open projections rely on
+    Spring Expression Language (SpEL) (@Value) for computed fields, which only works with interfaces.
+
+Closed projections
+
+A Closed Projection in Spring Data is an interface-based projection that only includes explicitly defined getters.
+
+
+SQL Query to create Schema
+===========================
+CREATE TABLE category (
+    id BIGINT PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(100) NOT NULL
+);
+
+
+CREATE TABLE product (
+    id BIGINT PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(100) NOT NULL,
+    price DOUBLE,
+    category_id BIGINT,
+    FOREIGN KEY (category_id) REFERENCES category(id)
+);
+
+
+INSERT INTO category (name) VALUES ('Electronics'), ('Books'), ('Clothing');
+
+
+INSERT INTO product (name, price, category_id) VALUES
+('Laptop', 1200.00, 1),
+('Smartphone', 800.00, 1),
+('Java Programming Book', 45.00, 2),
+('T-Shirt', 20.00, 3);
+
