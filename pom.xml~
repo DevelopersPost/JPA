@@ -21,6 +21,7 @@
     <module>Hello_World_JPA_Hibernate</module>
     <module>Hello_World_Native_Hibernate</module>
     <module>SwitchingBeweenJpaAndHibernate</module>
+    <module>Test</module>
     <module>HelloWorldWithSpringBootAndSpringData</module>
     <module>Accessing_Metadata_At_Runtime</module>
     <module>PaginationUsingSpringDataJpa</module>

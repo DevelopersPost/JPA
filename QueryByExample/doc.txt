@@ -1,0 +1,29 @@
+Query by Example (QBE)
+======================
+- It is a querying technique that does not require you to write classical queries to include entities and properties.
+- It allows dynamic query creation and consists of three pieces: a probe, an ExampleMatcher, and an Example.
+- The probe is a domain object with already-set properties. The ExampleMatcher provides the rules for matching particular properties.
+- An Example puts the probe and the ExampleMatcher together and generates the query. Multiple Examples may reuse a single ExampleMatcher.
+
+QBE has a couple of limitations:
+===============================
+It only supports starting/ending/containing regex matching for String properties, and exact matching for other types.
+It does not support nested or grouped property constraints, such as username = ?0 or (username = ?1 and email = ?2).
+
+
+
+CREATE TABLE user (
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255),
+    email VARCHAR(255),
+    city VARCHAR(255)
+);
+
+
+
+INSERT INTO user (name, email, city) VALUES
+('Bob', 'bob@example.com', 'Los Angeles'),
+('Charlie', 'charlie@example.com', 'New York'),
+('Alice', 'alice2@example.com', 'Boston');
+
+
